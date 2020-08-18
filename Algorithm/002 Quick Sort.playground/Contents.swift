@@ -27,7 +27,9 @@ fileprivate func partition<T: Comparable>(array: inout [T], startIndex s: Int, e
     var i = s, j = s
     while i < e && j < e {
         if array[j] <= pivot {
-            array.swapAt(i, j)
+            if i != j {
+                array.swapAt(i, j)
+            }
             j += 1
             i += 1
         } else {
